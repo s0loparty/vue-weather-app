@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+   --white-color: #fff;
+   --secondary-color: rgba(255, 255, 255, .6);
+   --blue-color: #498CEC;
+	--danger-color: #E74C3C;
+}
+
+:root[data-theme="dark"] {
+   --white-color: #e8e8e8;
+   --secondary-color: rgba(255, 255, 255, .6);
+   --blue-color: #383838;
+	--danger-color: #E74C3C;
+}
+
+@import './bk-vars';
+
+html {
+   height: -webkit-fill-available;
+}
+
+body {
+   font-family: 'Roboto', 'Arial', sans-serif;
+   background-color: var(--blue-color);
+   color: var(--white-color);
+	overflow: hidden;
+}
+
+#app {
+	position: relative;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+
+	padding-bottom: 50px;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+
+	transition: .4s;
+
+	&.pre-rain {
+		background: url('~@/assets/img/pre-rain-bg.png');
+		background-color: rgba(48, 75, 137, 0.991353);
+	}
+	&.rain {
+		background: url('~@/assets/img/rain-bg.png');
+		background-color: rgba(48, 75, 137, 0.991353);
+	}
+	&.cloud {
+		background: url('~@/assets/img/cloud-bg.png');
+		background-color: #3c7bd3
+	}
+	&.sun {
+		background: url('~@/assets/img/sun-bg.png');
+	}
+
+   @media screen and (max-width: $bk-sm) {
+      justify-content: space-between;
+
+      & header {
+         padding-top: 20px;
+      }
+   }
+}
+
+
+body,
+#app {
+   height: 100vh;
+   max-height: -webkit-fill-available;
+   min-height: -webkit-fill-available;
+}
+
+.container {
+   max-width: 1180px;
+   padding: 0 20px;
+   margin: 0 auto;
+}
+
+.btn {
+   border: 0;
+   background-color: transparent;
+   padding: 0;
+   cursor: pointer;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+   width: 7px;
+   height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #bebebe;
+   border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--white-color);
+   border-radius: 8px;
+   box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
+
+// imports
+@import './loader';
+@import './header';
+@import './weather';
+@import './footer';
+
+
+// vue-skeletor
+@import '~vue-skeletor/dist/vue-skeletor.css';
+.vue-skeletor-wrap {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+	width: 70vw;
+}
+.vue-skeletor {
+	margin-bottom: 40px;
+	border-radius: 4px;
+
+	// width: 80vw;
+	min-height: 80px;
+}
+.vue-skeletor--pill, .vue-skeletor--text {
+	border-radius: 4px !important;
+}

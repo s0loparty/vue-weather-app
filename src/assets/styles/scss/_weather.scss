@@ -1,0 +1,58 @@
+.weather {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+.weather-icon {
+	// width: 200px;
+	// height: 200px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& i {font-size: 140px;}
+}
+.weather-temp {
+	display: flex;
+	
+	font-size: 180px;
+	line-height: 216px;
+	text-align: center;
+	color: var(--white-color);
+
+	margin-left: 30px;
+}
+.weather-about {
+	font-size: 25px;
+	line-height: 30px;
+	text-align: center;
+	color: var(--white-color);
+}
+
+
+@media screen and (max-width: $bk-sm) {
+	.weather-temp {
+		font-size: 120px;
+		line-height: normal;
+		margin-left: 20px
+	}
+	.weather-icon i {font-size: 100px;}
+	.weather-about {font-size: 22px;}
+}
+@media screen and (max-width: $bk-xsm) {
+	.weather-temp {
+		font-size: 80px;
+		line-height: normal;
+	}
+	.weather-icon i {font-size: 70px;}
+	.weather-about {font-size: 18px;}
+}
+
+// iphone
+@media screen and (max-width: $bk-xsm) and (max-height: 526px) {
+	.weather-temp {font-size: 60px;}
+	.weather-icon i {font-size: 50px;}
+	.weather-about {line-height: normal;}
+}

@@ -1,0 +1,173 @@
+// WRAP
+.wrap-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.wrap-city-and-search {
+	width: 580px;
+	height: 100px;
+}
+
+
+// ПОИСК
+.wrap-search {
+	display: none;
+	height: inherit;
+
+	&.show {
+		display: block;
+	}
+
+	& form {
+		height: inherit;
+	}
+}
+.city-search {
+	display: flex;
+	justify-content: space-between;
+	height: inherit;
+
+	background: var(--white-color);
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+
+	transition: all .3s;
+
+	&:focus-within {
+		box-shadow: 0 0 30px rgb(255, 255, 255);
+	}
+
+	&_input {
+		border: 0;
+		background-color: transparent;
+		border-width: 0px;
+
+		padding: 0 32px;
+		flex: 1 0 0;
+
+		font-size: 30px;
+		line-height: 36px;
+		color: #000000;
+
+		&:focus {outline: none}
+	}
+	&_btn {
+		background-color: transparent;
+		border-width: 0;
+		cursor: pointer;
+		padding-left: 0;
+
+		padding-right: 32px;
+
+		font-size: 30px;
+		line-height: 36px;
+		color: #1086FF;
+
+		&:focus {outline: none;}
+	}
+}
+.search-results {
+	display: none;
+	background: var(--white-color);
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+
+	margin-top: 10px;
+	position: relative;
+	padding: 22px 32px;
+
+	max-height: 30vw;
+	overflow: auto;
+
+	&--show {
+		display: block;
+	}
+
+	&_item {
+		color: #000;
+		font-size: 30px;
+		line-height: 36px;
+
+		padding-bottom: 5px;
+		&:last-child {padding-bottom: 0;}
+
+		&:hover {
+			color: var(--blue-color);
+			cursor: pointer;
+		}
+	}
+}
+
+
+// ГОРОД
+.wrap-city {
+	&.hide {display: none;}
+}
+.current-city {
+	font-size: 50px;
+	line-height: 60px;
+	color: var(--white-color);
+}
+.city-buttons {
+	&_btn {
+		font-size: 18px;
+		line-height: 22px;
+		color: var(--secondary-color);
+
+		display: inline-flex;
+		align-items: center;
+
+		margin-right: 30px;
+		&:last-child {margin-right: 0;}
+
+		& i, & svg {
+			margin-right: 5px;
+			color: var(--secondary-color);
+			fill: var(--secondary-color);
+		}
+	}
+}
+
+
+
+@media screen and (max-width: $bk-md) {
+	// WRAP
+	.wrap-city-and-search {
+		width: 100%;
+	}
+}
+@media screen and (max-width: $bk-sm) {
+	// WRAP
+	.wrap-city-and-search {
+		height: 60px;
+	}
+
+	// ПОИСК
+	.city-search {
+		&_input {
+			width: 100%;
+			flex: unset;
+			padding: 0 20px;
+			font-size: 22px;
+		}
+		&_btn {
+			padding-right: 20px;
+			font-size: 22px;
+		}
+	}
+	.search-results {
+		padding: 10px 20px;
+
+		&_item {
+			font-size: 22px;
+			padding: 0;
+		}
+	}
+
+	// ГОРОД
+	.current-city {font-size: 40px;}
+}
+@media screen and (max-width: $bk-xsm) {
+	.current-city {font-size: 35px;}
+}
