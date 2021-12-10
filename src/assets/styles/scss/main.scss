@@ -38,24 +38,24 @@ body {
 
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: top;
+	background-position: center;
 
 	transition: .4s;
 
 	&.pre-rain {
-		background: url('~@/assets/img/pre-rain-bg.png');
+		background-image: url('~@/assets/img/pre-rain-bg.png');
 		background-color: rgba(48, 75, 137, 0.991353);
 	}
 	&.rain {
-		background: url('~@/assets/img/rain-bg.png');
+		background-image: url('~@/assets/img/rain-bg.png');
 		background-color: rgba(48, 75, 137, 0.991353);
 	}
 	&.cloud {
-		background: url('~@/assets/img/cloud-bg.png');
+		background-image: url('~@/assets/img/cloud-bg.png');
 		background-color: #3c7bd3
 	}
 	&.sun {
-		background: url('~@/assets/img/sun-bg.png');
+		background-image: url('~@/assets/img/sun-bg.png');
 	}
 
    @media screen and (max-width: $bk-sm) {
