@@ -6,13 +6,9 @@
 	margin: 0;
 	list-style: none;
 
-	// display: flex;
-	// justify-content: space-between;
-
 	display: grid;
 	grid-template-columns: repeat(4,1fr);
-	grid-column-gap: 0;
-	grid-row-gap: 20px;
+	grid-gap: 20px;
 }
 .statistic-item {
 	display: block;
@@ -74,10 +70,7 @@
 // media 
 @media screen and (max-width: 960px) {
 	.statistic-list {
-		// display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-column-gap: 20px;
-		grid-row-gap: 20px;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
 	}
 	.item-value {
 		font-size: 22px;
@@ -109,10 +102,6 @@
 	}
 }
 @media screen and (max-width: $bk-sm) {
-	.statistic-list {
-		display: flex;
-		flex-direction: column;
-	}
 	.item-value {
 		font-size: 20px;
 		margin-top: 0;

@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 
 import wearherModule from '@/store/modules/weather'
 import wearherListModule from '@/store/modules/weatherList'
-import errorModule from '@/store/modules/error'
 
 import axios from 'axios'
 
@@ -11,7 +10,7 @@ export default createStore({
 		UPDATE_INTERVAL: 300000, // 300000 (5min)
 		API: {
 			basePath: 'https://api.weatherapi.com/v1/',
-			key: '&key=312c13866c8d4744930141056212905',
+			key: '&key=' + process.env.VUE_APP_API_KEY,
 			methods: {
 				forecast: {
 					path: 'forecast.json?&days=1&aqi=no&alerts=no&lang=ru',
@@ -77,12 +76,13 @@ export default createStore({
 	actions: {
 		async getMemberLocation({commit, dispatch}) {
 			const { data: {ip} } = await axios.get('https://ipapi.co/json/')
-			const { data } = await axios.get(`https://api.allorigins.win/get?callback=myFunc&url=http://ip-api.com/json/${ip}?lang=ru`, {
+			const { data } = await axios.get(`https://api.allorigins.win/get?url=http://ip-api.com/json/${ip}?lang=ru`, {
 				headers: {
 					'Content-Type': 'application/jsonp'
 				}
 			})
-			const city = data.split('\"')[26].slice(0, -1)
+
+			const city = data.contents.split('\"')[23]
 			
 			commit('setCurrentCity', city)
 			dispatch('getWeather', city)
@@ -90,7 +90,6 @@ export default createStore({
 	},
 	modules: {
 		wearherModule,
-		wearherListModule,
-		errorModule,
+		wearherListModule
 	}
 })

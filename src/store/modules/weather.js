@@ -3,7 +3,7 @@ import axios from "axios"
 export default {
 	mutations: {
 		buildData(state, data) {
-			console.log('buildData:', data);
+
 			const currentHour = new Date().getHours()
 			state.appCurrentWeather = {
 				sunrise: data.astro.sunrise,

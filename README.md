@@ -1,6 +1,4 @@
 # pet-weather
-- demo https://s0loparty.github.io/vue-weather-page/
-
 
 ## Project setup
 ```
